@@ -2,6 +2,22 @@
 
 A simple VSCode extension that displays the VSCode application version in the status bar
 
+# Features
+
+![VSCode Version Status Bar](./images/screenshot.jpg)
+
+Includes the ability to specify a list of extensions to show the versions of in the status bar. Useful to track python extension versions.
+
+## Settings:
+```json
+"versionStatusBar.extensionsToShow": [
+	"ms-toolsai.jupyter",
+	"ms-python.vscode-pylance",
+	"ms-python.python"
+],
+```
+
+
 ## Known Issues
 
 Calling out known issues can help limit users opening duplicate issues against your extension.

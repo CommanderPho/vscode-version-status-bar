@@ -4,6 +4,8 @@ A simple VSCode extension that displays the VSCode application version in the st
 
 # Features
 
+![VSCode Version Status Bar](./images/screenshot.jpg)
+
 Includes the ability to specify a list of extensions to show the versions of in the status bar. Useful to track python extension versions.
 
 ## Settings:

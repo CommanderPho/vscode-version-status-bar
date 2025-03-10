@@ -4,6 +4,9 @@
     "description": "Shows the version of VSCode and the extension itself",
     "version": "0.0.2",
     "publisher": "phohale",
+	"author": {
+		"name": "Pho Hale"
+	},
     "engines": {
         "vscode": "^1.88.0"
     },
@@ -13,6 +16,10 @@
     "activationEvents": [
         "onStartupFinished"
     ],
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/CommanderPho/vscode-version-status-bar.git"
+	},
     "main": "./out/extension",
     "contributes": {
         "commands": [

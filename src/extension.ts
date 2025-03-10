@@ -8,10 +8,6 @@ import { VersionStatusBarItem } from './statusBar';
 // your extension is activated the very first time the command is executed
 export function activate(context: vscode.ExtensionContext) {
 
-    // Use the console to output diagnostic information (console.log) and errors (console.error)
-    // This line of code will only be executed once when your extension is activated
-    console.log('Congratulations, your extension "version-status-bar" is now active!');
-
     // Instantiate and register the new status bar item.
     const selectionStatusBar = new VersionStatusBarItem();
     context.subscriptions.push(selectionStatusBar);
@@ -25,10 +21,22 @@ export function activate(context: vscode.ExtensionContext) {
         const extensionVersion = currentExtension ? currentExtension.packageJSON.version : 'unknown';
         
         // Get all extensions information
-        const extensionsInfo = vscode.extensions.all.map(ext => {
-            return `${ext.packageJSON.displayName || ext.id}: v${ext.packageJSON.version}`;
+        const config = vscode.workspace.getConfiguration('versionStatusBar');
+        const extensionsToShow = config.get<string[]>('extensionsToShow', ['phohale.version-status-bar']);
+
+        const extensionsInfo = extensionsToShow.map(extId => {
+            try {
+                const ext = vscode.extensions.getExtension(extId);
+                if (!ext) {
+                    return `${extId}: Not installed`;
+                }
+                return `${ext.packageJSON.displayName || ext.id}: v${ext.packageJSON.version}`;
+            } catch (error) {
+                console.error(`Error retrieving information for extension ${extId}:`, error);
+                return `${extId}: Error retrieving information`;
+            }
         }).join('\n');
-        
+
         // Create version info message
         const versionInfo = 
             `VSCode: v${vsCodeVersion}\n` +

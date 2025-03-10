@@ -2,7 +2,7 @@
     "name": "version-status-bar",
     "displayName": "version-status-bar",
     "description": "Shows the version of VSCode and the extension itself",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "publisher": "phohale",
     "engines": {
         "vscode": "^1.88.0"
@@ -20,9 +20,23 @@
                 "command": "extension.printVersionInfo",
                 "title": "Print Version Info"
             }
-        ]
-    },
-    "scripts": {
+        ],
+        "configuration": {
+            "title": "Version Status Bar",
+            "properties": {
+                "versionStatusBar.extensionsToShow": {
+                    "type": "array",
+                    "default": ["phohale.version-status-bar"],
+                    "description": "List of extension IDs to show versions for in the status bar"
+                },
+                "versionStatusBar.showVSCodeVersion": {
+                    "type": "boolean",
+                    "default": true,
+                    "description": "Whether to show VSCode version in the status bar"
+                }
+            }
+        }
+    },    "scripts": {
         "vscode:prepublish": "npm run compile",
         "compile": "tsc -p ./",
         "watch": "tsc -watch -p ./",

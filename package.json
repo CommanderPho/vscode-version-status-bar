@@ -2,11 +2,11 @@
     "name": "version-status-bar",
     "displayName": "version-status-bar",
     "description": "Shows the version of VSCode and the extension itself",
-    "version": "0.0.3",
+    "version": "0.0.4",
     "publisher": "phohale",
-	"author": {
-		"name": "Pho Hale"
-	},
+    "author": {
+        "name": "Pho Hale"
+    },
     "engines": {
         "vscode": "^1.88.0"
     },
@@ -16,10 +16,10 @@
     "activationEvents": [
         "onStartupFinished"
     ],
-	"repository": {
-		"type": "git",
-		"url": "https://github.com/CommanderPho/vscode-version-status-bar.git"
-	},
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/CommanderPho/vscode-version-status-bar.git"
+    },
     "main": "./out/extension",
     "contributes": {
         "commands": [
@@ -33,7 +33,9 @@
             "properties": {
                 "versionStatusBar.extensionsToShow": {
                     "type": "array",
-                    "default": ["phohale.version-status-bar"],
+                    "default": [
+                        "phohale.version-status-bar"
+                    ],
                     "description": "List of extension IDs to show versions for in the status bar"
                 },
                 "versionStatusBar.showVSCodeVersion": {
@@ -43,13 +45,15 @@
                 }
             }
         }
-    },    "scripts": {
+    },
+    "scripts": {
         "vscode:prepublish": "npm run compile",
         "compile": "tsc -p ./",
         "watch": "tsc -watch -p ./",
         "package": "vsce package"
     },
     "devDependencies": {
-        "@types/vscode": "^1.88.0"
+        "@types/vscode": "^1.88.0",
+        "typescript": "^5.8.2"
     }
 }

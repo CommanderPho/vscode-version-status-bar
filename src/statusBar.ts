@@ -60,15 +60,7 @@ export class VersionStatusBarItem {
                 versionText += extensionVersions.join(' | ');
             }
         }
-        
-        // Add notebook selection indicator if needed
-        const activeNotebookEditor = vscode.window.activeNotebookEditor;
-        if (activeNotebookEditor && activeNotebookEditor.selections && activeNotebookEditor.selections.length > 0) {
-            const selectedCellIds = activeNotebookEditor.selections.map(range => range.start).join(', ');
-            if (versionText) versionText += ' | ';
-            versionText += `Selected Cells: ${selectedCellIds}`;
-        }
-        
+                
         // Update the status bar with an icon and the versions
         this.statusBarItem.text = versionText ? `$(versions) ${versionText}` : '$(versions)';
         this.statusBarItem.tooltip = 'Version Status Bar: Click to see all version info';

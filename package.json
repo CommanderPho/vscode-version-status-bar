@@ -2,7 +2,7 @@
     "name": "version-status-bar",
     "displayName": "version-status-bar",
     "description": "Shows the version of VSCode and the extension itself",
-    "version": "0.0.2",
+    "version": "0.0.3",
     "publisher": "phohale",
 	"author": {
 		"name": "Pho Hale"
